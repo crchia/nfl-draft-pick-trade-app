@@ -1,0 +1,36 @@
+html {
+  font-size: 0.9rem !important;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.single-line {
+  white-space: nowrap;
+}
+
+.v-data-table > .v-table__wrapper > table tbody > tr > td {
+  font-size: 0.9rem;
+  /* padding: 0 10px !important; */
+}
+
+.v-data-table > .v-table__wrapper > table thead > tr > th {
+  font-size: 0.9rem;
+}
+
+.v-tooltip > .v-overlay__content {
+  background: rgb(var(--v-theme-surface-variant)) !important;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+@media print {
+  .v-container {
+    background-color: white;
+  }
+}
