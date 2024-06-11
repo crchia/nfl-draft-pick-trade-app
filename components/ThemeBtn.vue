@@ -1,13 +1,12 @@
 <template>
   <v-btn
-    color="primary"
     size="small"
     rounded="lg"
     variant="outlined"
     prepend-icon="mdi-theme-light-dark"
     @click="isDark = !isDark"
   >
-    {{ isDark ? 'Dark' : 'Light' }} Mode
+    {{ isDark ? 'Dark' : 'Light' }}
   </v-btn>
 </template>
 

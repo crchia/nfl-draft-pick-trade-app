@@ -24,16 +24,16 @@ export default defineNuxtPlugin((nuxtApp) => {
       themes: {
         light: {
           colors: {
-            primary: '#673AB7',
+            primary: '#FFAB00',
             secondary: '#2196F3',
-            background: '#EEEEEE',
+            background: '#FFFFFF',
             button: '#2196F3',
             text: '#000000',
           },
         },
         dark: {
           colors: {
-            primary: '#673AB7',
+            primary: '#FFAB00',
             secondary: '#2196F3',
             background: '#121212',
             button: '#2196F3',
@@ -43,6 +43,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       },
     },
     defaults: {
+      VRow: {
+        justify: 'center',
+      },
       VAutocomplete: {
         hideDetails: true,
         variant: 'solo',

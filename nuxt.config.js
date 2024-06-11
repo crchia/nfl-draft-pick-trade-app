@@ -24,11 +24,11 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'LAC App',
+      title: 'THOR',
       meta: [
         {
           name: 'description',
-          content: 'Chargers App',
+          content: 'LA Chargers App',
         },
       ],
       link: [
