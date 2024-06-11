@@ -2,22 +2,18 @@ import { createVuetify } from 'vuetify'
 import 'vuetify/styles' // pre-build css styles
 import * as labs from 'vuetify/labs/components'
 
-/* Add all components and directives, for dev & prototyping only. */
-// import * as components from 'vuetify/components'
-// import * as directives from 'vuetify/directives'
-
 /* Add build-in icon used internally in various components */
 /* Described in https://next.vuetifyjs.com/en/features/icon-fonts/ */
 import { mdi, aliases as allAliases } from 'vuetify/iconsets/mdi'
 const aliases = allAliases
 
+import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
+
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     components: {
       ...labs,
-      // ...components,
     },
-    // directives,
     icons: {
       defaultSet: 'mdi',
       aliases,
