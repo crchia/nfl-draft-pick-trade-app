@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card style="border: 1px solid" class="py-2" variant="flat">
     <v-card-title>Trade {{ tradeIdx + 1 }}</v-card-title>
     <v-card-text v-for="team in trade" :key="team.team">
       <v-list-item :prepend-avatar="getTeamLogo(team.team)" :title="team.team">
