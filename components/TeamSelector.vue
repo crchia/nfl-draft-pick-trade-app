@@ -30,6 +30,7 @@
 
 <script setup>
 import { teams } from '~/data/teams'
+import { getTeamLogo } from '~/helpers';
 
 const props = defineProps({
   clearable: {
@@ -51,9 +52,6 @@ const team = ref(props.modelValue)
 
 const emit = defineEmits(['update:modelValue'])
 watch(team, () => emit('update:modelValue', team.value))
-
-const getTeamLogo = (teamAbr) =>
-  `https://static.www.nfl.com/t_headshot_desktop_2x/f_auto/league/api/clubs/logos/${teamAbr}`
 </script>
 
 <style lang="scss" scoped></style>

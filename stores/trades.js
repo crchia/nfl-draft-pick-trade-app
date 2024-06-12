@@ -9,7 +9,17 @@ export const useTradesStore = defineStore('trades', () => {
   const team2Picks = ref([])
 
   const saveTrade = () => {
-
+    // saving a new trade
+    trades.value.push([
+      {
+        team: team1.value,
+        picks: team1Picks.value,
+      },
+      {
+        team: team2.value,
+        picks: team2Picks.value,
+      },
+    ])
   }
 
   return {

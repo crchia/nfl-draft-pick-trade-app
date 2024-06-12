@@ -7,7 +7,7 @@
     <v-card-text class="d-flex align-center">
       <div
         :style="`width: ${
-          100 * tradesStore.team1Picks.reduce((acc, obj) => acc + obj.value, 0)
+          100 * team1Picks.reduce((acc, obj) => acc + obj.value, 0)
         }%`"
       >
         <v-progress-linear :model-value="100" rounded height="15">
@@ -18,7 +18,7 @@
       </div>
       <div
         :style="`width: ${
-          100 * tradesStore.team2Picks.reduce((acc, obj) => acc + obj.value, 0)
+          100 * team2Picks.reduce((acc, obj) => acc + obj.value, 0)
         }%`"
       >
         <v-progress-linear
@@ -30,40 +30,61 @@
     </v-card-text>
     <v-card-title class="text-center">
       <div>
-        Package 1 =
+        <v-icon>mdi-numeric-1-box</v-icon> =
         {{
           roundExact(
             (100 *
-              tradesStore.team1Picks.reduce((acc, obj) => acc + obj.value, 0)) /
-              tradesStore.team2Picks.reduce((acc, obj) => acc + obj.value, 0),
+              team1Picks.reduce((acc, obj) => acc + obj.value, 0)) /
+              team2Picks.reduce((acc, obj) => acc + obj.value, 0),
             0
           )
-        }}% of Package 2
+        }}% of <v-icon>mdi-numeric-2-box</v-icon>
       </div>
       <div>
-        Package 2 =
+        <v-icon>mdi-numeric-2-box</v-icon> =
         {{
           roundExact(
             (100 *
-              tradesStore.team2Picks.reduce((acc, obj) => acc + obj.value, 0)) /
-              tradesStore.team1Picks.reduce((acc, obj) => acc + obj.value, 0),
+              team2Picks.reduce((acc, obj) => acc + obj.value, 0)) /
+              team1Picks.reduce((acc, obj) => acc + obj.value, 0),
             0
           )
-        }}% of Package 1
+        }}% of <v-icon>mdi-numeric-1-box</v-icon>
       </div>
     </v-card-title>
-    <v-card-actions>
+    <v-card-actions v-if="tradeIdx === -1">
       <v-spacer></v-spacer>
-      <v-btn color="success" prepend-icon="mdi-check">Save Trade</v-btn>
+      <v-btn color="success" prepend-icon="mdi-check" @click="saveTrade">{{
+        saveText
+      }}</v-btn>
       <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>
 </template>
 
 <script setup>
+import { roundExact } from '~/helpers'
 import { useTradesStore } from '~~/stores/trades'
 const tradesStore = useTradesStore()
-import { roundExact } from '~/helpers'
+
+const props = defineProps({
+  team1Picks: Array,
+  team2Picks: Array,
+  tradeIdx: {
+    type: Number,
+    default: -1,
+  }
+})
+
+const saveText = ref('Save Trade')
+
+const saveTrade = async () => {
+  tradesStore.saveTrade()
+  saveText.value = 'Saved!'
+  setTimeout(() => {
+    saveText.value = 'Save Trade'
+  }, 1500)
+}
 </script>
 
 <style lang="scss" scoped></style>

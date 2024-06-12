@@ -4,6 +4,7 @@
       <team-selector
         v-model="team"
         variant="outlined"
+        :clearable="isNewTrade"
         :label="`Team ${teamNum}`"
       />
     </v-card-title>
@@ -63,6 +64,10 @@ const props = defineProps({
   teamNum: Number,
   curTeam: String,
   curSelectedPicks: Array,
+  isNewTrade: {
+    type: Boolean,
+    default: true
+  }
 })
 
 const team = ref(props.curTeam)
@@ -73,17 +78,16 @@ const teamPicks = computed(() => {
   return picks.filter((p) => p.team === team.value)
 })
 
-watchEffect(() => {
-  if (props.teamNum === 1) {
-    tradesStore.team1 === team.value
-    tradesStore.team1Picks = selectedPicks.value
-  } else {
-    tradesStore.team2 = team.value
-    tradesStore.team2Picks = selectedPicks.value
-  }
+const emit = defineEmits(['update:team', 'update:selectedPicks'])
+
+watch(team, () => {
+  selectedPicks.value = []
+  emit('update:team', team.value)
 })
 
-watch(team, () => (selectedPicks.value = []))
+watch(selectedPicks, () => {
+  emit('update:selectedPicks', selectedPicks.value)
+})
 </script>
 
 <style lang="scss" scoped></style>
