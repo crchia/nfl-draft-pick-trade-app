@@ -37,17 +37,21 @@
               :teamNum="1"
               :curTeam="tradesStore.team1"
               :curSelectedPicks="tradesStore.team1Picks"
-              @update:team="(payload) => tradesStore.team1 = payload"
-              @update:selectedPicks="(payload) => tradesStore.team1Picks = payload"
-              />
-              </v-col>
-              <v-col cols="12" md="6">
-                <trade-team-card
-                :teamNum="2"
-                :curTeam="tradesStore.team2"
-                :curSelectedPicks="tradesStore.team2Picks"
-                @update:team="(payload) => tradesStore.team2 = payload"
-                @update:selectedPicks="(payload) => tradesStore.team2Picks = payload"
+              @update:team="(payload) => (tradesStore.team1 = payload)"
+              @update:selectedPicks="
+                (payload) => (tradesStore.team1Picks = payload)
+              "
+            />
+          </v-col>
+          <v-col cols="12" md="6">
+            <trade-team-card
+              :teamNum="2"
+              :curTeam="tradesStore.team2"
+              :curSelectedPicks="tradesStore.team2Picks"
+              @update:team="(payload) => (tradesStore.team2 = payload)"
+              @update:selectedPicks="
+                (payload) => (tradesStore.team2Picks = payload)
+              "
             />
           </v-col>
         </v-row>
@@ -65,14 +69,14 @@
     </v-row>
     <v-row v-else>
       <v-col
-        v-for="i in tradesStore.trades.length"
+        v-for="(trade, i) in tradesStore.trades.length"
         :key="i"
         cols="12"
         sm="6"
         md="4"
         lg="3"
       >
-        <saved-trade-dialog :tradeIdx="i - 1" />
+        <saved-trade-dialog :tradeIdx="i" />
       </v-col>
     </v-row>
   </v-container>

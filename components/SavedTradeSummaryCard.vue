@@ -18,7 +18,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="red" @click="() => tradesStore.trades.splice(tradeIdx, 1)"
+      <v-btn color="red" @click.stop="() => tradesStore.trades.splice(tradeIdx, 1)"
         >Delete Trade</v-btn
       >
       <v-spacer></v-spacer>
