@@ -1,75 +1,12 @@
-# Nuxt 3 Minimal Starter
+# NFL Draft Pick Trade Tool
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Site
 
-## Setup
+Click [here](https://lac-thor.netlify.app) for the site.
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Notes on the Tool
+* I used the pick-value-chart listed [here](https://www.drafttek.com/NFL-Trade-Value-Chart.asp). A differnt chart could easily be substituted
+* Saved Trades will persist until they are deleted, or until the page is refreshed
+  * I did not use a database + backend for this small project, hence the saved trades being wiped on refresh. In a full version of this tool, I would add a backend
+* Saved Trades can be modified by clicking on the trade
+* Dark/Light Mode can be toggled using the button in the top-right corner of the page
