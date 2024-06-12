@@ -4,7 +4,7 @@
     <v-card-text v-for="team in trade" :key="team.team">
       <v-list-item :prepend-avatar="getTeamLogo(team.team)" :title="team.team">
         <v-list-item-subtitle>
-          <v-icon>mdi-plus</v-icon>
+          <v-icon>mdi-lectern</v-icon>
           <v-chip
             class="ml-1"
             size="small"
